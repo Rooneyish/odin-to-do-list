@@ -14,12 +14,11 @@ module.exports = {
     static: path.resolve(__dirname, "dist"), // Serve files from "dist"
     port: 8080, // Specify the port
     open: true, // Automatically open the browser
-    watchFiles: ["./src/todoList.html"], // Watch for changes
+    watchFiles: ["./src/template.html"], // Watch for changes
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/todoList.html",
-      filename: "todoList.html" 
+      template: "./src/template.html", // Use this template
     }),
   ],
   module: {
