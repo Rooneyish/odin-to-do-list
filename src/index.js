@@ -1,5 +1,6 @@
 import { Todo } from './Todo.js'; 
 import { Project } from './Project.js';
+import "./styles.css";
 
 const myTodo = new Todo(
   "Buy groceries",
