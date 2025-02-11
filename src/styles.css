@@ -86,8 +86,8 @@ body {
 
 .todoNotebook {
   background: var(--white);
-  width: 600px;
-  height: 80vh;
+  width: 800px;
+  height: 90vh;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 10px 20px var(--blue);
@@ -96,7 +96,7 @@ body {
 
 .page {
   padding: 20px;
-  line-height: 2;
+  line-height: 40px;
   position: relative;
   left: 40px;
 }
@@ -139,30 +139,70 @@ body {
   font-weight: bold;
 }
 
-.checkbox {
-  display: block;
+.todo {
+  display: flex;
+  justify-content:space-between;
+  align-items: start;
+  gap: 30px;
   font-size: 16px;
+  line-height: 40px;
+  width: 100%;
+}
+
+.todo:hover{
+  color: var(--darkBlue);
+  cursor: pointer;
+}
+
+.todo p{
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.todo p:first-of-type{
+  flex: 2;
+}
+
+.todo p:not(:first-of-type){
+  flex:1;
 }
 
 .checkbox input{
   cursor: pointer;
 }
 
-.buttons {
-  margin-top: 10px;
+.checkbox{
+  margin-top: 15px;
 }
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
 .button {
   background-color: var(--blue);
   border: 2px solid var(--blue);
-  font-size: 12px !important; 
+  font-size: 18px !important; 
   color: var(--white);
-  padding: 0px 10px;
+  padding: 0px 20px;
   border-radius: 6px;
-  margin-right: 8px;
   cursor: pointer;
   transition: 0.3s;
 }
 
+.dueDate{
+  color: #FF6B6B;
+}
+
+.dueTime{
+  color: #FFA726;
+}
+
+.priority{
+  color: ;
+}
 
 .button:hover {
   color: var(--darkBlue);
@@ -176,14 +216,16 @@ h1 {
   font-size: 40px !important;
 }
 
-.projects {
+.project {
   font-family: var(--h2);
   color: var(--blue);
   font-size: 24px;
+  padding: 0px 20px 0px 0px;
 }
 
 label {
   font-family: "Happy Monkey", serif;
   font-size: 18px !important;
-  color: var(--lightBlue);
+  color: var(--blue);
 }
+
