@@ -1,3 +1,5 @@
+import { Todo } from "./Todo.js";
+
 const todoDialoguebox = () => {
   const todoDialoguebox = document.querySelector("#todoDialoguebox");
 
@@ -31,7 +33,6 @@ const todoDialoguebox = () => {
     `;
 
   todoDialoguebox.appendChild(todoAddBox);
-
   todoDialoguebox.style.display = "block";
 
   document.querySelector("#cancelTodo").addEventListener("click", () => {
@@ -39,33 +40,45 @@ const todoDialoguebox = () => {
   });
 
   document.querySelector("#addTodo").addEventListener("click", () => {
-    const todoTitle = document.querySelector("#todoTitle").value;
+    const title = document.querySelector("#todoTitle").value.trim();
+    const description = document.querySelector("#todoDescription").value.trim();
     const dueDate = document.querySelector("#todoDueDate").value;
     const dueTime = document.querySelector("#todoDueTime").value;
-    const dueTimeFormatted = formatTime(dueTime);
     const priority = document.querySelector("#todoPriority").value;
-    if (todoTitle == "" || dueDate == "" || dueTime == "" || priority == "") {
+
+    if (!title || !dueDate || !dueTime || !priority) {
       console.log("Empty fields");
-    } else {
-      const newTodo = document.createElement("div");
-      newTodo.classList.add("todo");
-      newTodo.innerHTML = `
-        <input type="checkbox" class="checkbox" />
-        <p class="to-do-title">${todoTitle}</p>
-        <p class="dueDate">Due Date: ${dueDate}</p>
-        <p class="dueTime">Due Time: ${dueTimeFormatted}</p>
-        <p class="priority">Priority: ${priority}</p>`;
-      document.querySelector(".project").appendChild(newTodo);
+      return;
     }
-    console.log("Saving To-do:", {
-      title: document.querySelector("#todoTitle").value,
-      dueDate: document.querySelector("#todoDueDate").value,
-      dueTime: document.querySelector("#todoDueTime").value,
-      priority: document.querySelector("#todoPriority").value,
-    });
+
+    const newTodo = new Todo(title, description, dueDate, dueTime, priority);
+    
+    displayTodo(newTodo);
+
+    console.log("Saving To-do:", newTodo);
     todoDialoguebox.style.display = "none";
   });
 };
+
+function displayTodo(todo) {
+  const projectContainer = document.querySelector(".project");
+  if (!projectContainer) {
+    console.error("Element with class 'project' not found.");
+    return;
+  }
+
+  const newTodoElement = document.createElement("div");
+  newTodoElement.classList.add("todo");
+  newTodoElement.innerHTML = `
+      <input type="checkbox" class="checkbox" />
+      <p class="to-do-title">${todo.title}</p>
+      <p class="dueDate">Due Date: ${todo.dueDate}</p>
+      <p class="dueTime">Due Time: ${formatTime(todo.dueTime)}</p>
+      <p class="priority">Priority: ${todo.priority}</p>
+    `;
+
+  projectContainer.appendChild(newTodoElement);
+}
 
 function clickTodo() {
   const todoButton = document.querySelector("#todo");
@@ -75,7 +88,7 @@ function clickTodo() {
     return;
   }
 
-  todoButton.addEventListener("click", function () {
+  todoButton.addEventListener("click", () => {
     todoDialoguebox();
   });
 }
@@ -83,9 +96,10 @@ function clickTodo() {
 function formatTime(time) {
   const [hours, minutes] = time.split(":").map(Number);
   const suffix = hours >= 12 ? "PM" : "AM";
-  const hours12 = hours % 12 || 12;  
+  const hours12 = hours % 12 || 12;
   return `${hours12}:${minutes < 10 ? "0" + minutes : minutes} ${suffix}`;
 }
+
 clickTodo();
 
 export { clickTodo };

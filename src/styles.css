@@ -86,7 +86,7 @@ body {
 
 .todoNotebook {
   background: var(--white);
-  width: 800px;
+  width: 1400px;
   height: 90vh;
   padding: 20px;
   border-radius: 12px;
@@ -98,14 +98,14 @@ body {
   padding: 20px;
   line-height: 40px;
   position: relative;
-  left: 40px;
+  left: 150px;
 }
 
 .todoNotebook::before {
   content: " ";
   position: absolute;
   top: 0;
-  left: 70px;
+  left: 170px;
   width: 3px;
   height: 100%;
   align-self: center;
@@ -242,6 +242,7 @@ label {
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   width: 300px;
+  z-index: 10;
 }
 
 .todoAddBox {
@@ -293,4 +294,6 @@ label {
 .todoAddBox input,
 textarea {
   color: var(--darkBlue);
+  border-radius: 10px;
 }
+
