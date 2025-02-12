@@ -125,7 +125,8 @@ body {
     to bottom,
     transparent 0 30px,
     var(--grey) 30px 32px,
-    transparent 32px 40px);
+    transparent 32px 40px
+  );
 }
 
 .content {
@@ -141,7 +142,7 @@ body {
 
 .todo {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: start;
   gap: 30px;
   font-size: 16px;
@@ -149,30 +150,30 @@ body {
   width: 100%;
 }
 
-.todo:hover{
+.todo:hover {
   color: var(--darkBlue);
   cursor: pointer;
 }
 
-.todo p{
+.todo p {
   margin: 0;
   text-align: left;
   width: 100%;
 }
 
-.todo p:first-of-type{
+.todo p:first-of-type {
   flex: 2;
 }
 
-.todo p:not(:first-of-type){
-  flex:1;
+.todo p:not(:first-of-type) {
+  flex: 1;
 }
 
-.checkbox input{
+.checkbox input {
   cursor: pointer;
 }
 
-.checkbox{
+.checkbox {
   margin-top: 15px;
 }
 
@@ -184,7 +185,7 @@ body {
 .button {
   background-color: var(--blue);
   border: 2px solid var(--blue);
-  font-size: 18px !important; 
+  font-size: 18px !important;
   color: var(--white);
   padding: 0px 20px;
   border-radius: 6px;
@@ -192,22 +193,22 @@ body {
   transition: 0.3s;
 }
 
-.dueDate{
-  color: #FF6B6B;
+.dueDate {
+  color: #ff6b6b;
 }
 
-.dueTime{
-  color: #FFA726;
+.dueTime {
+  color: #ffa726;
 }
 
-.priority{
+.priority {
   color: var(--blue);
 }
 
 .button:hover {
   color: var(--darkBlue);
   background-color: #a9b5df79;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 h1 {
@@ -243,31 +244,32 @@ label {
   width: 300px;
 }
 
-
 .todoAddBox {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.todoAddBox label{
+.todoAddBox label {
   color: var(--white);
 }
 
-#todoDueDate, #todoDueTime, #todoPriority{
+#todoDueDate,
+#todoDueTime,
+#todoPriority {
   background-color: transparent;
   border: none;
   color: var(--white);
 }
 
-.todoButtons{
+.todoButtons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
 
-.todoAddBox button{
+.todoAddBox button {
   margin-top: 10px;
   padding: 5px;
   cursor: pointer;
@@ -276,14 +278,19 @@ label {
   border: none;
   border-radius: 10px;
   color: var(--darkBlue);
-  transition: .3s;
+  transition: 0.3s;
 }
-.todoAddBox h2{
+.todoAddBox h2 {
   color: var(--darkBlue);
   font-family: var(--h2);
 }
-.todoAddBox button:hover{
+.todoAddBox button:hover {
   color: var(--white);
   background-color: var(--darkBlue);
-  transition: .3s;
+  transition: 0.3s;
+}
+
+.todoAddBox input,
+textarea {
+  color: var(--darkBlue);
 }
