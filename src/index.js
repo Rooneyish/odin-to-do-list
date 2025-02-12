@@ -1,6 +1,7 @@
 import { Todo } from './Todo.js'; 
 import { Project } from './Project.js';
 import "./styles.css";
+import { clickTodo } from './mainPage.js';
 
 const myTodo = new Todo(
   "Buy groceries",
@@ -25,3 +26,5 @@ myProject.addTodo(myTodo1);
 myProject.removeTodo(1);
 
 myProject.printTodos();
+
+clickTodo();

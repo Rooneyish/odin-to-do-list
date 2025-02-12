@@ -201,7 +201,7 @@ body {
 }
 
 .priority{
-  color: ;
+  color: var(--blue);
 }
 
 .button:hover {
@@ -229,3 +229,61 @@ label {
   color: var(--blue);
 }
 
+#todoDialoguebox {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--blue);
+  border: 2px solid var(--darkBlue);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+
+.todoAddBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todoAddBox label{
+  color: var(--white);
+}
+
+#todoDueDate, #todoDueTime, #todoPriority{
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+}
+
+.todoButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.todoAddBox button{
+  margin-top: 10px;
+  padding: 5px;
+  cursor: pointer;
+  width: 40%;
+  background-color: var(--white);
+  border: none;
+  border-radius: 10px;
+  color: var(--darkBlue);
+  transition: .3s;
+}
+.todoAddBox h2{
+  color: var(--darkBlue);
+  font-family: var(--h2);
+}
+.todoAddBox button:hover{
+  color: var(--white);
+  background-color: var(--darkBlue);
+  transition: .3s;
+}
