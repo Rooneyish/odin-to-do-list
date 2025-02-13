@@ -297,3 +297,30 @@ textarea {
   border-radius: 10px;
 }
 
+.sideButtonContainer {
+  position: absolute;
+  left: 20px;
+  top: 175px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  z-index: 12;
+}
+
+.sideButton {
+  text-align: left;
+  background-color: transparent;
+  color: var(--blue);
+  font-family: var(--h2);
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sideButton:hover {
+  color: var(--darkBlue);
+}

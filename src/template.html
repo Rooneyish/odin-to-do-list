@@ -9,11 +9,18 @@
   <body>
     <div id="todoBackdrop"></div>
     <div class="todoNotebook">
+      <div class="sideButtonContainer">
+        <button class="sideButton">#General</button>
+        <button class="sideButton">#Projects</button>
+        <button class="sideButton">#All Tasks</button>
+        <button class="sideButton">#Completed <br>Tasks</button>
+      </div>      
       <div class="page">
         <div class="content">
           <h1 class="title">To-do List</h1>
           <div class="project">
-            <p>#General</p>
+            <p class="projectTitle">#General</p>
+
             <label for="" class="todo">
               <input type="checkbox" class="checkbox" />
               <p class="to-do-title">
@@ -25,7 +32,7 @@
             </label>
             <label for="" class="todo">
               <input type="checkbox" class="checkbox" />
-              <p>
+              <p class="to-do-title">
                 Get Groceries
               </p>
               <p class="dueDate">Due Date: 12-12-2025</p>

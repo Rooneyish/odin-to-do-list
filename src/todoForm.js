@@ -33,6 +33,8 @@ const todoDialoguebox = () => {
     `;
 
   todoDialoguebox.appendChild(todoAddBox);
+  
+  
   todoDialoguebox.style.display = "block";
 
   document.querySelector("#cancelTodo").addEventListener("click", () => {
