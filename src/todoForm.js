@@ -1,5 +1,8 @@
 import { Todo } from "./Todo.js";
 
+
+let projects = ['General'];
+
 const todoDialoguebox = () => {
   const todoDialoguebox = document.querySelector("#todoDialoguebox");
 
@@ -26,6 +29,10 @@ const todoDialoguebox = () => {
                 <option>Low</option>
             </select>
         </label>
+        <label>Project:
+            <select id="project">
+            </select>
+        </label>
         <div class="todoButtons">
             <button id="addTodo">Add Todo</button>
             <button id="cancelTodo">Cancel</button>
@@ -34,6 +41,7 @@ const todoDialoguebox = () => {
 
   todoDialoguebox.appendChild(todoAddBox);
   
+  updateProjectDropdown();
   
   todoDialoguebox.style.display = "block";
 
@@ -47,13 +55,14 @@ const todoDialoguebox = () => {
     const dueDate = document.querySelector("#todoDueDate").value;
     const dueTime = document.querySelector("#todoDueTime").value;
     const priority = document.querySelector("#todoPriority").value;
+    const project = document.querySelector('#project').value;
 
     if (!title || !dueDate || !dueTime || !priority) {
       console.log("Empty fields");
       return;
     }
 
-    const newTodo = new Todo(title, description, dueDate, dueTime, priority);
+    const newTodo = new Todo(title, description, dueDate, dueTime, priority, project);
     
     displayTodo(newTodo);
 
@@ -61,6 +70,26 @@ const todoDialoguebox = () => {
     todoDialoguebox.style.display = "none";
   });
 };
+
+function updateProjectDropdown(){
+  const projectDropdown = document.querySelector('#project');
+  projectDropdown.innerHTML="";
+
+  projects.forEach((project)=>{
+    const option = document.createElement("option");
+    option.value=project;
+    option.textContent=project;
+    projectDropdown.appendChild(option);
+  })
+}
+
+function addProject(projectName) {
+  if (!projects.includes(projectName)) {
+    projects.push(projectName);
+    updateProjectDropdown(); // Update dropdown options
+  }
+}
+
 
 function displayTodo(todo) {
   const projectContainer = document.querySelector(".project");
@@ -104,4 +133,4 @@ function formatTime(time) {
 
 clickTodo();
 
-export { clickTodo };
+export { clickTodo, addProject };
